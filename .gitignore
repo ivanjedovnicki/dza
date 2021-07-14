@@ -1,6 +1,9 @@
 # PyCharm
 .idea
 
+# Tokens and keys
+keys_tokens.txt
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
