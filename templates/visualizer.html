@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Earthquake Visualizer</title>
+</head>
+<body>
+<form action="" method="get">
+    <select name="time" id="1234">
+        <option value="last_24_hours" selected>Last 24 hours</option>
+        <option value="last_3_days">Last 3 days</option>
+        <option value="last_month">Last month</option>
+        <option value="all">All</option>
+    </select>
+    <button type="submit">Go</button>
+</form>
+<table>
+    <thead>
+        <tr>
+            <th colspan="5">Earthquake details</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>title</td>
+            <td>latitude</td>
+            <td>longitude</td>
+            <td>magnitude</td>
+            <td>time</td>
+        </tr>
+        {% for object in object_list %}
+        <tr>
+            <td>{{ object.title }}</td>
+            <td>{{ object.latitude }}</td>
+            <td>{{ object.longitude }}</td>
+            <td>{{ object.magnitude }}</td>
+            <td>{{ object.time }}</td>
+            {% load tz %}
+            {% timezone "Europe/Zagreb" %}
+            <td>{{ object.time }}</td>
+            {% endtimezone %}
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</body>
+</html>

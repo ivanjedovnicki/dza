@@ -12,7 +12,6 @@ URI = r'https://www.emsc.eu/service/rss/rss.php?typ=emsc&min_lat=10&min_long=-30
 PRIMARY_KEY_REGEX = re.compile(r'https://www.emsc.eu/Earthquake/earthquake\.php\?id=(\d*)')
 MAGNITUDE_REGEX = re.compile(r'.*(\d\.\d)')
 COUNTRY = ''
-HTTP_OK = 200
 
 
 def _get_pk(link):
@@ -49,7 +48,7 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         rss_feed = requests.get(URI)
-        if rss_feed.status_code != HTTP_OK:
+        if rss_feed.status_code != requests.codes.OK:
             self.stderr('rss feed data unavailable')
             return
 
@@ -66,4 +65,4 @@ class Command(BaseCommand):
             except EarthQuakeFeed.DoesNotExist:
                 EarthQuakeFeed.objects.create(**item)
                 created += 1
-        self.stdout(f'Created {created}, updated {updated} records')
+        self.stdout.write(f'Created {created}, updated {updated} records')
