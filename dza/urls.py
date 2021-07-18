@@ -20,7 +20,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('earthquake/', include('earthquake_visualizer.urls')),
+    path('earthquake/', include('earthquake_visualizer.urls', namespace='earthquake')),
 ]
 
 if settings.DEBUG:

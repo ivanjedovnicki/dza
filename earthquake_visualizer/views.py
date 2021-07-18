@@ -55,5 +55,4 @@ class EarthQuakeListView(ListView):
             earthquake_data['color'].append(
                 magnitude_to_color(earthquake_object.magnitude))
         context['earthquake_data'] = earthquake_data
-        print(context)
         return context

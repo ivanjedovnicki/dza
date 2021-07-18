@@ -16,9 +16,9 @@ var data = [{
 }];
 
 var layout = {
-    width: 900,
-    height: 900,
-    title: 'Canadian cities',
+    width: 1200,
+    height: 1200,
+    title: 'Earthquakes',
     font: {
         family: 'Droid Serif, serif',
         size: 15
