@@ -3,8 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <title>Earthquake Visualizer</title>
+
+    {% load static %}
+    <script src="{% static 'plotly-2.2.0.min.js' %}"></script>
 </head>
 <body>
+    {{ earthquake_data|json_script:'earthquake-data' }}
+
+	<div id='myDiv'><!-- Plotly chart will be drawn inside this DIV --></div>
+    <script src="{% static 'graph.js' %}"></script>
+
 <form action="" method="get">
     <select name="time" id="1234">
         <option value="last_24_hours" selected>Last 24 hours</option>
@@ -43,5 +51,7 @@
         {% endfor %}
     </tbody>
 </table>
+{{ a }}
+{{ b }}
 </body>
 </html>
