@@ -49,7 +49,7 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         rss_feed = requests.get(URI)
         if rss_feed.status_code != requests.codes.OK:
-            self.stderr('rss feed data unavailable')
+            self.stderr.write('rss feed data unavailable')
             return
 
         created, updated = 0, 0
