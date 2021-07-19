@@ -11,7 +11,7 @@ from earthquake_visualizer.models import EarthQuakeFeed
 URI = r'https://www.emsc.eu/service/rss/rss.php?typ=emsc&min_lat=10&min_long=-30&max_long=65'
 PRIMARY_KEY_REGEX = re.compile(r'https://www.emsc.eu/Earthquake/earthquake\.php\?id=(\d*)')
 MAGNITUDE_REGEX = re.compile(r'.*(\d\.\d)')
-COUNTRY = ''
+COUNTRY = 'CROATIA'
 
 
 def _get_pk(link):
